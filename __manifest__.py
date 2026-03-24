@@ -27,9 +27,9 @@
     'depends': ['web'],
     'assets': {
         # ✅ Override APENAS de cores (sem unidades de medida)
-        'web._assets_primary_variables': [
-            ('prepend', 'modern_ux_theme_global/static/src/scss/_variables_global.scss'),
-        ],
+        #'web._assets_primary_variables': [
+         #   ('prepend', 'modern_ux_theme_global/static/src/scss/_variables_global.scss'),
+        #],
         # ✅ CSS explícito para sizing (border-radius, padding, etc.)
         'web.assets_backend': [
             ('append', 'modern_ux_theme_global/static/src/scss/main.scss'),
