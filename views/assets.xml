@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- modern_ux_theme_global/views/assets.xml -->
 <odoo>
-    <!-- 
-        ======================================================================
-        INJEÇÃO DE ASSETS - Tema Global Modern UX
-        ======================================================================
-        ⚠️ NOTA: Se usar 'assets' no __manifest__.py, este arquivo é OPCIONAL.
-        Escolha UM método apenas para evitar duplicação.
-        ======================================================================
-    -->
-    
-    <!-- Variáveis primárias (carregadas PRIMEIRO) -->
+    <!-- Variáveis primárias (cores) -->
     <template id="assets_primary_variables" 
               inherit_id="web._assets_primary_variables" 
               priority="5">
@@ -19,19 +11,17 @@
         </xpath>
     </template>
     
-    <!-- Assets backend (carregados DEPOIS) -->
+    <!-- Estilos gerais (backend) -->
     <template id="assets_backend" 
               inherit_id="web.assets_backend" 
               priority="10">
         <xpath expr="." position="append">
             <link rel="stylesheet" 
-                  href="/modern_ux_theme_global/static/src/scss/_components_base.scss"/>
-            <link rel="stylesheet" 
-                  href="/modern_ux_theme_global/static/src/scss/_views_all.scss"/>
+                  href="/modern_ux_theme_global/static/src/scss/main.scss"/>
         </xpath>
     </template>
     
-    <!-- Assets frontend (login page) -->
+    <!-- Estilos gerais (frontend/login) -->
     <template id="assets_frontend" 
               inherit_id="web.assets_frontend" 
               priority="10">
