@@ -1,0 +1,411 @@
+// modern_ux_theme_global/static/src/scss/_views_all.scss
+// =============================================================================
+// 📋 VIEWS - Funciona com TODOS os módulos (Form, List, Kanban, Graph, Pivot)
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// 📋 FORM VIEW - GLOBAL
+// -----------------------------------------------------------------------------
+
+.o_form_view {
+    
+    .o_form_sheet {
+        background: $o-view-background-color;
+        border-radius: $o-border-radius-lg;
+        border: 1px solid $o-border-color;
+        box-shadow: $o-shadow-sm;
+        max-width: 100%;
+        
+        &:hover {
+            box-shadow: $o-shadow;
+        }
+    }
+    
+    // Labels
+    .o_group {
+        .o_td_label {
+            font-weight: $o-font-weight-medium;
+            color: $o-main-text-secondary;
+            font-size: $o-font-size-sm;
+            padding-right: 12px;
+        }
+        
+        // Inputs
+        .o_td {
+            .o_input,
+            .form-control,
+            select.form-select {
+                font-size: $o-font-size-base;
+                padding: $o-input-padding-y $o-input-padding-x;
+                border-radius: $o-input-border-radius;
+                border: 1px solid $o-input-border-color;
+                color: $o-main-text-color;
+                
+                &:focus {
+                    border-color: $o-input-focus-border-color;
+                    box-shadow: $o-input-focus-box-shadow;
+                    outline: none;
+                }
+                
+                &:disabled,
+                &[readonly] {
+                    background: #f8fafc;
+                    color: $o-main-text-muted;
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+    
+    // Statusbar
+    .o_form_statusbar {
+        .o_statusbar_buttons {
+            .btn {
+                font-weight: $o-font-weight-medium;
+                border-radius: $o-border-radius;
+                padding: 6px 16px;
+                font-size: $o-font-size-sm;
+                
+                &.btn-primary {
+                    background: $o-brand-primary;
+                    border-color: $o-brand-primary;
+                    
+                    &:hover:not(:disabled) {
+                        background: darken($o-brand-primary, 8%);
+                        border-color: darken($o-brand-primary, 8%);
+                    }
+                }
+            }
+        }
+        
+        .o_statusbar_status {
+            .badge {
+                font-weight: $o-badge-font-weight;
+                border-radius: $o-badge-border-radius;
+                padding: 4px 10px;
+                font-size: $o-font-size-sm;
+            }
+        }
+    }
+    
+    // Notebook/Tabs
+    .o_notebook {
+        .o_notebook_tabs {
+            .nav-item {
+                .nav-link {
+                    color: $o-main-text-secondary;
+                    font-weight: $o-font-weight-medium;
+                    border: none;
+                    border-bottom: 2px solid transparent;
+                    
+                    &.active {
+                        color: $o-brand-primary;
+                        border-bottom-color: $o-brand-primary;
+                        background: transparent;
+                    }
+                    
+                    &:hover:not(.active) {
+                        color: $o-main-text-color;
+                        background: transparent;
+                    }
+                }
+            }
+        }
+        
+        .o_notebook_content {
+            padding: 16px;
+        }
+    }
+    
+    // Stat buttons (buttons no topo do form)
+    .oe_button_box {
+        .o_stat_button {
+            .o_stat_info {
+                .o_stat_value {
+                    font-weight: $o-font-weight-bold;
+                    color: $o-main-headings-color;
+                }
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// 📊 LIST VIEW - GLOBAL
+// -----------------------------------------------------------------------------
+
+.o_list_view {
+    .o_list_table {
+        background: $o-view-background-color;
+        border-radius: $o-border-radius-lg;
+        border: 1px solid $o-border-color;
+        border-collapse: separate;
+        border-spacing: 0;
+        
+        thead {
+            th {
+                background: #f1f5f9;
+                color: $o-main-text-secondary;
+                font-weight: $o-font-weight-semibold;
+                font-size: $o-font-size-sm;
+                text-transform: uppercase;
+                letter-spacing: 0.025em;
+                padding: 12px 16px;
+                border-bottom: 2px solid $o-border-color;
+                border-top: 1px solid $o-border-color;
+                
+                &.o_list_record_selector {
+                    text-align: center;
+                }
+            }
+        }
+        
+        tbody {
+            tr {
+                &:nth-child(even) {
+                    background: rgba(241, 245, 249, 0.4);
+                }
+                
+                &:hover {
+                    background: rgba(79, 70, 229, 0.04) !important;
+                    
+                    td {
+                        border-color: lighten($o-brand-primary, 25%);
+                    }
+                }
+                
+                &.o_selected_row {
+                    background: rgba(79, 70, 229, 0.08) !important;
+                    border-left: 3px solid $o-brand-primary;
+                }
+                
+                td {
+                    padding: 12px 16px;
+                    color: $o-main-text-color;
+                    font-size: $o-font-size-base;
+                    border-color: $o-border-color;
+                    border-bottom: 1px solid $o-border-color;
+                    
+                    a {
+                        color: $o-brand-primary;
+                        font-weight: $o-font-weight-medium;
+                        text-decoration: none;
+                        
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                    
+                    .badge {
+                        font-weight: $o-badge-font-weight;
+                        border-radius: $o-badge-border-radius;
+                    }
+                }
+            }
+        }
+        
+        tfoot {
+            td {
+                background: #f8fafc;
+                font-weight: $o-font-weight-semibold;
+                color: $o-main-headings-color;
+                border-top: 2px solid $o-border-color;
+            }
+        }
+    }
+    
+    .o_list_buttons {
+        .btn {
+            font-weight: $o-font-weight-medium;
+            border-radius: $o-border-radius;
+        }
+    }
+    
+    .o_list_footer {
+        background: #f8fafc;
+        font-weight: $o-font-weight-bold;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// 🗂️ KANBAN VIEW - GLOBAL
+// -----------------------------------------------------------------------------
+
+.o_kanban_view {
+    .o_kanban_renderer {
+        .o_kanban_record {
+            background: $o-view-background-color;
+            border: 1px solid $o-border-color;
+            border-radius: $o-border-radius-lg;
+            box-shadow: $o-shadow-sm;
+            margin: 8px;
+            
+            &:hover {
+                box-shadow: $o-shadow-md;
+                transform: translateY(-2px);
+                border-color: lighten($o-brand-primary, 20%);
+            }
+            
+            &.o_kanban_selected {
+                border: 2px solid $o-brand-primary;
+                box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+            }
+        }
+        
+        .o_kanban_group {
+            background: #f1f5f9;
+            border-radius: $o-border-radius;
+            padding: 8px;
+            margin: 8px;
+            
+            .o_kanban_header {
+                font-weight: $o-font-weight-semibold;
+                color: $o-main-headings-color;
+                padding: 8px 12px;
+                background: #e2e8f0;
+                border-radius: $o-border-radius;
+                margin-bottom: 8px;
+            }
+        }
+    }
+    
+    // Quick create button
+    .o_kanban_quick_create {
+        .btn {
+            font-weight: $o-font-weight-medium;
+            border-radius: $o-border-radius;
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// 📈 GRAPH & PIVOT VIEW - GLOBAL
+// -----------------------------------------------------------------------------
+
+.o_graph_view,
+.o_pivot_view {
+    .o_graph_canvas,
+    .o_pivot_table {
+        background: $o-view-background-color;
+        border-radius: $o-border-radius-lg;
+        border: 1px solid $o-border-color;
+        padding: 16px;
+    }
+    
+    .o_graph_legend {
+        font-size: $o-font-size-sm;
+        color: $o-main-text-secondary;
+        
+        .o_graph_legend_item {
+            font-weight: $o-font-weight-medium;
+        }
+    }
+    
+    th {
+        background: #f1f5f9;
+        color: $o-main-text-secondary;
+        font-weight: $o-font-weight-semibold;
+        font-size: $o-font-size-sm;
+    }
+    
+    td {
+        color: $o-main-text-color;
+        font-size: $o-font-size-base;
+        border-color: $o-border-color;
+        
+        &.o_pivot_total {
+            font-weight: $o-font-weight-semibold;
+            background: #f8fafc;
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// 📱 RESPONSIVIDADE GLOBAL
+// -----------------------------------------------------------------------------
+
+@include media-breakpoint-down(md) {
+    .o_web_client {
+        font-size: 15px;
+        
+        .btn {
+            padding: 10px 16px;
+            min-height: 44px;
+        }
+        
+        .o_input,
+        .form-control,
+        select.form-select {
+            min-height: 44px;
+            font-size: 16px; // Evita zoom no iOS
+        }
+        
+        .o_main_navbar {
+            height: 52px !important;
+            
+            .o_menu_entry {
+                padding: 0 10px;
+            }
+        }
+    }
+    
+    // Forms em mobile
+    .o_form_view {
+        .o_form_sheet {
+            padding: 12px;
+        }
+        
+        .o_group {
+            .o_td_label,
+            .o_td {
+                padding: 4px 8px;
+            }
+        }
+        
+        .o_form_statusbar {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+    
+    // Lists em mobile
+    .o_list_view {
+        .o_list_table {
+            font-size: $o-font-size-sm;
+            
+            thead th,
+            tbody td {
+                padding: 8px 10px;
+            }
+        }
+        
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+    
+    // Scroll horizontal para gráficos
+    .o_graph_view,
+    .o_pivot_view {
+        .o_graph_canvas,
+        .o_pivot_table {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+}
+
+// Touch devices
+.o_web_client.o_touch_device {
+    .btn,
+    .o_dropdown_toggle,
+    .o_menu_entry,
+    .o_list_record_selector {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
