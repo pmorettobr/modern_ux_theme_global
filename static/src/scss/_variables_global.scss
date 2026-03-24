@@ -1,64 +1,50 @@
 // modern_ux_theme_global/static/src/scss/_variables_global.scss
 // =============================================================================
-// 🎨 VARIÁVEIS GLOBAIS - Tema Moderno para Odoo 16 Community
-// =============================================================================
-// ✅ Estas variáveis afetam TODOS os módulos automaticamente
-// ✅ Use !default para respeitar a cascata do SCSS
+// 🎨 VARIÁVEIS GLOBAIS - Versão COMPATÍVEL (sem conflito de unidades)
 // =============================================================================
 
 // -----------------------------------------------------------------------------
 // 🎨 CORES - Sistema Unificado (Indigo Moderno)
 // -----------------------------------------------------------------------------
 
-// Primary - Sua cor de marca (aparece em TODOS os módulos)
-$o-brand-primary: #4f46e5 !default;           // Indigo 600
-$o-brand-primary-light: #818cf8 !default;     // Indigo 400
-$o-brand-primary-dark: #3730a3 !default;      // Indigo 800
+$o-brand-primary: #4f46e5 !default;
+$o-brand-primary-light: #818cf8 !default;
+$o-brand-primary-dark: #3730a3 !default;
 $o-brand-odoo: $o-brand-primary !default;
-$o-brand-secondary: #64748b !default;         // Slate 500
-$o-brand-lightsecondary: #f1f5f9 !default;    // Slate 100
+$o-brand-secondary: #64748b !default;
+$o-brand-lightsecondary: #f1f5f9 !default;
 
-// Status Colors - Semânticas (usado em TODOS os módulos)
-$o-success: #059669 !default;                 // Emerald 600
-$o-success-light: #d1fae5 !default;           // Emerald 100
-$o-info: #2563eb !default;                    // Blue 600
-$o-info-light: #dbeafe !default;              // Blue 100
-$o-warning: #d97706 !default;                 // Amber 600
-$o-warning-light: #fef3c7 !default;           // Amber 100
-$o-danger: #dc2626 !default;                  // Red 600
-$o-danger-light: #fee2e2 !default;            // Red 100
+$o-success: #059669 !default;
+$o-success-light: #d1fae5 !default;
+$o-info: #2563eb !default;
+$o-info-light: #dbeafe !default;
+$o-warning: #d97706 !default;
+$o-warning-light: #fef3c7 !default;
+$o-danger: #dc2626 !default;
+$o-danger-light: #fee2e2 !default;
 
-// Backgrounds - Camadas de profundidade (afeta TODAS as views)
-$o-main-bg-color: #f8fafc !default;           // Slate 50 - Fundo geral
-$o-view-background-color: #ffffff !default;   // White - Cards/Forms
-$o-main-bg-elevated: #ffffff !default;        // White - Elementos elevados
+$o-main-bg-color: #f8fafc !default;
+$o-view-background-color: #ffffff !default;
+$o-main-text-color: #1e293b !default;
+$o-main-text-secondary: #475569 !default;
+$o-main-text-muted: #64748b !default;
+$o-main-headings-color: #0f172a !default;
 
-// Text Colors - Hierarquia tipográfica (GLOBAL)
-$o-main-text-color: #1e293b !default;         // Slate 800 - Texto principal
-$o-main-text-secondary: #475569 !default;     // Slate 600 - Texto secundário
-$o-main-text-muted: #64748b !default;         // Slate 500 - Texto desativado
-$o-main-headings-color: #0f172a !default;     // Slate 900 - Títulos
+$o-border-color: #e2e8f0 !default;
+$o-border-color-light: #f1f5f9 !default;
 
-// Borders & Dividers (todas as bordas do sistema)
-$o-border-color: #e2e8f0 !default;            // Slate 200
-$o-border-color-light: #f1f5f9 !default;      // Slate 100
-$o-border-color-focus: $o-brand-primary !default;
-
-// Shadows - Sistema de elevação sutil (Material Design inspired)
 $o-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !default;
-$o-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1) !default;
-$o-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1) !default;
-$o-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !default;
+$o-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1) !default;
+$o-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !default;
 $o-dropdown-box-shadow: $o-shadow-md !default;
 
 // -----------------------------------------------------------------------------
-// ✍️ TIPOGRAFIA - Hierarquia Clara
+// ✍️ TIPOGRAFIA - ⚠️ SEM CÁLCULOS COM UNIDADES MISTAS
 // -----------------------------------------------------------------------------
 
-$o-root-font-size: 14px !default;
-$o-font-size-base: 14rem * (1px / $o-root-font-size) !default;
-$o-font-size-sm: 12rem * (1px / $o-root-font-size) !default;
-$o-font-size-lg: 16rem * (1px / $o-root-font-size) !default;
+// ✅ Apenas defina o root, NÃO redefina font-size-base com cálculos
+// Deixe o Odoo calcular $o-font-size-base baseado no $o-root-font-size original
+// Se precisar mudar, use apenas px OU apenas rem, nunca misture
 
 $o-font-weight-normal: 400 !default;
 $o-font-weight-medium: 500 !default;
@@ -66,89 +52,59 @@ $o-font-weight-semibold: 600 !default;
 $o-font-weight-bold: 700 !default;
 
 $o-line-height-base: 1.5 !default;
-$o-line-height-tight: 1.25 !default;
-
-// Fontes do sistema (sem dependência externa = mais rápido)
-$o-system-fonts: (
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Ubuntu, "Liberation Sans", Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji"
-) !default;
-
-$o-font-family-sans-serif: o-add-unicode-support-font($o-system-fonts) !default;
-$o-headings-font-family: o-add-unicode-support-font(("SF Pro Display", $o-system-fonts)) !default;
 
 // -----------------------------------------------------------------------------
-// 📐 ESPAÇAMENTO - Sistema de 4px
+// 📐 COMPONENTES - Valores simples e seguros
 // -----------------------------------------------------------------------------
 
-$o-spacing-unit: 4px !default;
-$o-horizontal-padding: 16px !default;
-$o-form-spacing-unit: 8px !default;
-$o-sheet-vpadding: 20px !default;
+$o-border-radius: 0.5rem !default;        // ✅ rem é seguro aqui (não há cálculo)
+$o-border-radius-sm: 0.375rem !default;
+$o-border-radius-lg: 0.75rem !default;
+$o-border-radius-full: 9999px !default;   // ✅ px fixo também é seguro
 
-// -----------------------------------------------------------------------------
-// 🔘 COMPONENTES - Modernos e Acessíveis
-// -----------------------------------------------------------------------------
-
-// Border Radius - Suave mas profissional
-$o-border-radius: 0.5rem !default;            // 8px
-$o-border-radius-sm: 0.375rem !default;       // 6px
-$o-border-radius-lg: 0.75rem !default;        // 12px
-$o-border-radius-full: 9999px !default;       // Pill style
-
-// Buttons
+// Botões - use valores simples
 $o-btn-padding-y: 0.5rem !default;
 $o-btn-padding-x: 1rem !default;
 $o-btn-font-weight: $o-font-weight-medium !default;
-$o-btn-secondary-bg: $o-view-background-color !default;
+$o-btn-secondary-bg: #ffffff !default;
 $o-btn-secondary-border: $o-border-color !default;
-$o-btn-secondary-hover-bg: $o-brand-lightsecondary !default;
-$o-btn-secondary-hover-border: $o-border-color !default;
+$o-btn-secondary-hover-bg: #f1f5f9 !default;
 
-// Inputs & Forms
+// Inputs - ⚠️ EVITE cálculos com unidades aqui
 $o-input-padding-y: 0.5rem !default;
 $o-input-padding-x: 0.75rem !default;
 $o-input-border-color: $o-border-color !default;
 $o-input-border-radius: $o-border-radius !default;
 $o-input-focus-border-color: $o-brand-primary !default;
+// ✅ Box-shadow com valores unitless ou px fixos é seguro
 $o-input-focus-box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15) !default;
+
+// Placeholders
 $input-placeholder-color: $o-main-text-muted !default;
 
 // Badges
-$o-badge-min-width: 3ch !default;
-$o-badge-padding-y: 0.25em !default;
+$o-badge-min-width: 3ch !default;         // ✅ 'ch' é unitless relativo
+$o-badge-padding-y: 0.25em !default;      // ✅ 'em' é relativo ao elemento
 $o-badge-padding-x: 0.65em !default;
-$o-badge-border-radius: $o-border-radius-full !default;
+$o-badge-border-radius: 9999px !default;
 $o-badge-font-weight: $o-font-weight-medium !default;
 
 // -----------------------------------------------------------------------------
-// 🧭 NAVBAR & NAVEGAÇÃO
+// 🧭 NAVBAR
 // -----------------------------------------------------------------------------
 
-$o-navbar-height-lg: 56px !default;
+$o-navbar-height-lg: 56px !default;       // ✅ px fixo é seguro
 $o-navbar-background: $o-brand-primary !default;
 $o-navbar-entry-color: rgba(255, 255, 255, 0.95) !default;
 $o-navbar-entry-bg--hover: rgba(255, 255, 255, 0.15) !default;
-$o-navbar-brand-font-size: 1.1rem !default;
 
-// Breadcrumbs
-$o-cp-breadcrumb-height: 40px !default;
 $breadcrumb-bg: transparent !default;
-$breadcrumb-item-padding: 0.5rem !default;
 
 // -----------------------------------------------------------------------------
-// ⚡ ANIMAÇÕES & TRANSIÇÕES
+// ⚡ ANIMAÇÕES & ACESSIBILIDADE
 // -----------------------------------------------------------------------------
 
 $o-transition-base: all 0.15s ease-in-out !default;
-$o-transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !default;
-
-// -----------------------------------------------------------------------------
-// ♿ ACESSIBILIDADE - WCAG 2.1 AA
-// -----------------------------------------------------------------------------
-
-$o-frontend-min-contrast-ratio: 4.5 !default;
 $o-focus-outline: 2px solid $o-brand-primary !default;
 $o-focus-outline-offset: 2px !default;
 $o-opacity-disabled: 0.6 !default;
